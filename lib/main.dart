@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notecounta/pages/home.dart';
+import 'package:notecounta/pages/notecounta.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +13,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Nota Konter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Home(title: 'Nota Konter'),
+      // home: const Home(title: 'Nota Konter'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Home(title: 'Nota Konter'),
+        '/notecounta': (context) => const Notecounta(title: 'Nota Konter'),
+        // Add other routes here if needed
+      },
     );
   }
 }
