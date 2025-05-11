@@ -30,7 +30,7 @@ class _Notecounta extends State<Notecounta> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'cobaaa',
             ),
             Text(
               '$_counter',

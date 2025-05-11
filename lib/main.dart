@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       // home: const Home(title: 'Nota Konter'),
       initialRoute: '/',
       routes: {
-        '/': (context) => const Home(title: 'Nota Konter'),
+        '/': (context) => const Home(),
         '/notecounta': (context) => const Notecounta(title: 'Nota Konter'),
         // Add other routes here if needed
       },
