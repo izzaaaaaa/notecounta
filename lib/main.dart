@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Nota Konter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 52, 90, 204)),
+            seedColor: const Color.fromARGB(255, 5, 207, 36)),
         useMaterial3: true,
       ),
       // home: const Home(title: 'Nota Konter'),
