@@ -15,15 +15,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nota Konter',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 52, 90, 204)),
         useMaterial3: true,
       ),
       // home: const Home(title: 'Nota Konter'),
       initialRoute: '/',
       routes: {
         '/': (context) => const Home(),
-        '/notecounta': (context) => const Notecounta(title: 'Nota Konter'),
-        // Add other routes here if needed
+        '/notecounta': (context) => const Notecounta(
+              title: "Nota Konter",
+            ),
       },
     );
   }
