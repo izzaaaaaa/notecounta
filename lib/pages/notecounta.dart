@@ -10,11 +10,11 @@ class Notecounta extends StatefulWidget {
 }
 
 class _Notecounta extends State<Notecounta> {
-  int _counter = 0;
+  int _notecounta = 0;
 
-  void _incrementCounter() {
+  void _incrementNotecounta() {
     setState(() {
-      _counter++;
+      _notecounta++;
     });
   }
 
@@ -33,14 +33,14 @@ class _Notecounta extends State<Notecounta> {
               'cobaaa',
             ),
             Text(
-              '$_counter',
+              '$_notecounta',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _incrementNotecounta,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
