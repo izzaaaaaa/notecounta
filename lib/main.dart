@@ -23,9 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Home(),
-        '/notecounta': (context) => const Notecounta(
-              title: "Nota Konter",
-            ),
+        '/notecounta': (context) => const Notecounta(),
       },
     );
   }
