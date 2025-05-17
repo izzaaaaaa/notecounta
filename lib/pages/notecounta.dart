@@ -140,7 +140,7 @@ class NotecountaState extends State<Notecounta> {
                 }
                 Navigator.of(context).pop();
               },
-              child: Text(nota == null ? 'Tambah' : 'Update'),
+              child: Text(nota == null ? 'Tambah' : 'Simpan'),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(),

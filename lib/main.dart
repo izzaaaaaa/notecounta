@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:notecounta/pages/home.dart';
 import 'package:notecounta/pages/notecounta.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  await Supabase.initialize(
+    url: 'https://ewdtwuhzqlbbnqalxhnm.supabase.co',
+    anonkey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV3ZHR3dWh6cWxiYm5xYWx4aG5tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0ODY1OTUsImV4cCI6MjA2MzA2MjU5NX0.riXjtK5QeshwwfQtQW-w7yeKi_meSgjOrSK4cKBe6Fw',
+  );
 }
 
 class MyApp extends StatelessWidget {
