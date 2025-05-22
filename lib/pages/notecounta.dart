@@ -235,10 +235,13 @@ class NotecountaState extends State<Notecounta> {
                   icon: const Icon(Icons.delete),
                   onPressed: () => _deleteNota(nota.id),
                 ),
+                
               ],
             ),
+            
           );
         },
+        
       ),
     );
   }
