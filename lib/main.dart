@@ -18,10 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nota Konter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 5, 207, 36)),
+            seedColor: const Color.fromARGB(255, 14, 169, 0)),
         useMaterial3: true,
       ),
       // home: const Home(title: 'Nota Konter'),

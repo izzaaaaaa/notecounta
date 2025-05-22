@@ -240,12 +240,6 @@ class NotecountaState extends State<Notecounta> {
           );
         },
       ),
-      // Tombol FloatingActionButton untuk menambah nota baru.
-      floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            _showNotaDialog(), // Membuka dialog tambah nota kosong.
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
