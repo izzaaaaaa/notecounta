@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:notecounta/pages/home.dart';
 import 'package:notecounta/pages/notecounta.dart';
-// import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   runApp(const MyApp());
-  // await Supabase.initialize(
-  //   url: 'https://ewdtwuhzqlbbnqalxhnm.supabase.co',
-  //   anonkey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV3ZHR3dWh6cWxiYm5xYWx4aG5tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0ODY1OTUsImV4cCI6MjA2MzA2MjU5NX0.riXjtK5QeshwwfQtQW-w7yeKi_meSgjOrSK4cKBe6Fw',
-  // );
+  await Supabase.initialize(
+    url: 'https://emdsnpumittmsmolihuy.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVtZHNucHVtaXR0bXNtb2xpaHV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5NTgxNzgsImV4cCI6MjA2MzUzNDE3OH0.7NWD00SiQvzHaxAvFE-fxP5blktulazTDuf-Ax8_dQI',
+  );
 }
 
 class MyApp extends StatelessWidget {
