@@ -12,14 +12,15 @@ class Home extends StatelessWidget {
         title: const Text("Home"), // Judul di bagian atas aplikasi
       ),
     body: Column(
-      children: [],
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/notecounta');
-          },
-          child: const Icon(Icons.add), // Ikon untuk tombol mengambang
-        )
-         // Konten utama
+        mainAxisAlignment: MainAxisAlignment.center, // Posisikan konten di tengah
+        children: [
+          // Tombol untuk navigasi ke halaman Notecounta
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/notecounta'); // Navigasi ke halaman Notecounta
+            },
+            child: const Text("Buka Notecounta"), // Teks pada tombol
+          )],
       ),
       // Posisi tombol mengambang (pojok kanan bawah)
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
