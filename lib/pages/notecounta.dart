@@ -1,26 +1,5 @@
 import 'package:flutter/material.dart'; // Mengimpor paket Material Design Flutter untuk widget UI.
-
-class Nota {
-  final int id; // ID unik untuk setiap nota.
-  final DateTime tanggal; // Tanggal nota tercatat.
-  final String nama; // Nama pemilik atau pelanggan.
-  final String typeHp; // Tipe handphone yang diperbaiki.
-  final String kerusakan; // Deskripsi kerusakan handphone.
-  final String kelengkapan; // Keterangan kelengkapan yang diserahkan.
-  final String noHp; // Nomor handphone pelanggan.
-  final double harga; // Harga perbaikan atau bagian yang dikenakan.
-
-  // Konstruktor Nota, semua parameter wajib diisi (required).
-  Nota(
-      {required this.id,
-      required this.tanggal,
-      required this.nama,
-      required this.typeHp,
-      required this.kerusakan,
-      required this.kelengkapan,
-      required this.noHp,
-      required this.harga});
-}
+import 'package:notecounta/pages/nota.dart'; // Mengimpor model Nota untuk digunakan dalam aplikasi.
 
 class Notecounta extends StatefulWidget {
   const Notecounta({super.key}); // Konstruktor dengan key opsional.
@@ -51,7 +30,7 @@ class NotecountaState extends State<Notecounta> {
   }
 
   // Fungsi mengupdate nota yang sudah ada berdasarkan ID.
-  void _updateNota(int id, DateTime tanggal, String nama, String typeHp,
+  void _updateNota(int? id, DateTime tanggal, String nama, String typeHp,
       String kerusakan, String kelengkapan, String noHp, double harga) {
     setState(() {
       final index = notas.indexWhere(
@@ -72,7 +51,7 @@ class NotecountaState extends State<Notecounta> {
   }
 
   // Fungsi menghapus nota berdasarkan ID.
-  void _deleteNota(int id) {
+  void _deleteNota(int? id) {
     setState(() {
       notas.removeWhere(
           (nota) => nota.id == id); // Hapus semua nota yang ID-nya sama.
@@ -233,7 +212,7 @@ class NotecountaState extends State<Notecounta> {
                 // Tombol hapus nota berdasarkan ID.
                 IconButton(
                   icon: const Icon(Icons.delete),
-                  onPressed: () => _deleteNota(nota.id),
+                  onPressed: () => _deleteNota(nota.id!),
                 ),
                 
               ],
