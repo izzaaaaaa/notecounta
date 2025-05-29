@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notecounta/pages/home.dart'; 
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:notecounta/pages/notecounta.dart'; // Import halaman Notecounta
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Penting untuk inisialisasi async
@@ -22,16 +21,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 14, 169, 0),
+          seedColor: const Color.fromARGB(255, 27, 255, 88),
         ),
         useMaterial3: true,
       ),
-      // home: const Home(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const Home(),
-        '/notecounta': (context) => const Notecounta(),
-      }, 
+      home: const Home(),
     );
   }
 }

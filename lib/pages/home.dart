@@ -1,46 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:notecounta/pages/notecounta.dart';
+// import 'package:notecounta/pages/nota.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  // List untuk menyimpan data input dari halaman Notecounta
-  final List<Map<String, dynamic>> daftarData = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Page"),
+        title: const Text('Aplikasi Nota Konter'),
+        centerTitle: true, // Judul di tengah
       ),
-      body: ListView.builder(
-        itemCount: daftarData.length,
-        itemBuilder: (context, index) {
-          final item = daftarData[index];
-          return ListTile(
-            title: Text(item['nama'] ?? '-'),
-            subtitle: Text("Tipe HP: ${item['typeHp'] ?? '-'}"),
-            trailing: Text("Rp ${item['harga']?.toStringAsFixed(0) ?? '0'}"),
-          );
-        },
+      body: const Center(
+        child: Text(
+          'Selamat datang!',
+          style: TextStyle(fontSize: 18),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          // Menunggu hasil dari halaman Notecounta
-          final hasil = await Navigator.pushNamed(context, "/notecounta");
-          // print("Kembali dari notecounta: $hasil");
-          // Jika hasil tidak null dan berupa Map, tambahkan ke daftar
-          if (hasil is Map<String, dynamic>) {
-            setState(() {
-              daftarData.add(hasil);
-            });
-          }
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Notecounta()),
+          );
         },
-        tooltip: 'Tambah',
         child: const Icon(Icons.add),
       ),
     );
