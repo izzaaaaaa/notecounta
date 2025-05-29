@@ -229,7 +229,7 @@ class _NotaState extends State<Nota> {
                 decoration: const InputDecoration(
                   labelText: 'Harga',
                   border: OutlineInputBorder(),
-                  prefixText: 'Rp ', // Tambahkan prefix "Rp"
+                  prefixText: 'Rp.', // Tambahkan prefix "Rp"
                 ),
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
