@@ -33,7 +33,7 @@ class _NotaState extends State<Nota> {
       final data = widget.notaData!;
       _selectedDate = DateTime.parse(data['tanggal']);
       _namaController.text = data['nama'] ?? '';
-      _typeHpController.text = (data['type_hp'] ?? '').toString();
+      _typeHpController.text = data['type_hp'] ?? '';
       _kerusakanController.text = data['kerusakan'] ?? '';
       _kelengkapanController.text = data['kelengkapan'] ?? '';
       _noHpController.text = (data['no_hp'] ?? '').toString();
@@ -58,18 +58,13 @@ class _NotaState extends State<Nota> {
   Future<void> submitForm() async {
     if (!_formKey.currentState!.validate()) return; // Jika form tidak valid, keluar
     if (_selectedDate == null) {
-      // Jika tanggal belum dipilih
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Tanggal harus tersedia')),
-      );
-      return;
     }
 
     // Persiapkan data untuk disimpan
     final data = {
       'tanggal': _selectedDate!.toIso8601String().split('T').first, // Format YYYY-MM-DD
       'nama': _namaController.text.trim(),
-      'type_hp': int.parse(_typeHpController.text.trim()),
+      'type_hp':_typeHpController.text.trim(),
       'kerusakan': _kerusakanController.text.trim(),
       'kelengkapan': _kelengkapanController.text.trim(),
       'no_hp': int.parse(_noHpController.text.trim()),
@@ -167,13 +162,9 @@ class _NotaState extends State<Nota> {
                   labelText: 'Type HP',
                   border: OutlineInputBorder(),
                 ),
-                keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return 'Type HP tidak boleh kosong';
-                  }
-                  if (int.tryParse(value.trim()) == null) {
-                    return 'Type HP harus berupa angka';
                   }
                   return null;
                 },
