@@ -1,47 +1,48 @@
 import 'package:flutter/material.dart';
 
-// Deklarasi widget Home sebagai StatelessWidget
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  // List untuk menyimpan data input dari halaman Notecounta
+  final List<Map<String, dynamic>> daftarData = [];
+
+  @override
   Widget build(BuildContext context) {
-    // Scaffold digunakan untuk membuat struktur halaman dasar (AppBar, Body, FAB, dll)
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"), // Judul di bagian atas aplikasi
+        title: const Text("Home Page"),
       ),
-    body: Column(
-        mainAxisAlignment: MainAxisAlignment.center, // Posisikan konten di tengah
-        children: [
-          // Tombol untuk navigasi ke halaman Notecounta
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/notecounta'); // Navigasi ke halaman Notecounta
-            },
-            child: const Text("Buka Notecounta"), // Teks pada tombol
-          )],
+      body: ListView.builder(
+        itemCount: daftarData.length,
+        itemBuilder: (context, index) {
+          final item = daftarData[index];
+          return ListTile(
+            title: Text(item['nama'] ?? '-'),
+            subtitle: Text("Tipe HP: ${item['typeHp'] ?? '-'}"),
+            trailing: Text("Rp ${item['harga']?.toStringAsFixed(0) ?? '0'}"),
+          );
+        },
       ),
-      // Posisi tombol mengambang (pojok kanan bawah)
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          // Menunggu hasil dari halaman Notecounta
+          final hasil = await Navigator.pushNamed(context, "/notecounta");
+          // print("Kembali dari notecounta: $hasil");
+          // Jika hasil tidak null dan berupa Map, tambahkan ke daftar
+          if (hasil is Map<String, dynamic>) {
+            setState(() {
+              daftarData.add(hasil);
+            });
+          }
+        },
+        tooltip: 'Tambah',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//DATABASE
-// # Connect to Supabase via connection pooling
-// DATABASE_URL="postgresql://postgres.ewdtwuhzqlbbnqalxhnm:[YOUR-PASSWORD]@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
-
-// # Direct connection to the database. Used for migrations
-// DIRECT_URL="postgresql://postgres.ewdtwuhzqlbbnqalxhnm:[YOUR-PASSWORD]@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
