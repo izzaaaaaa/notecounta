@@ -55,14 +55,14 @@ class _NotecountaState extends State<Notecounta> {
     final confirm = await showDialog<bool>( // Menampilkan dialog konfirmasi hapus data
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text('Konfirmasi'), // Judul dialog
+        title: const Text('Konfirmasi'), 
         content: const Text('Apakah Anda yakin ingin menghapus data ini?'), // Isi dialog
         actions: [ // Tombol aksi dialog
           TextButton(
-              onPressed: () => Navigator.pop(context, false), // Tutup dialog dan return false (batal)
+              onPressed: () => Navigator.pop(context, false), // Tombol aksi batal
               child: const Text('Batal')),
           TextButton(
-              onPressed: () => Navigator.pop(context, true), // Tutup dialog dan return true (hapus)
+              onPressed: () => Navigator.pop(context, true), // TTombol aksi hapus
               child: const Text('Hapus')),
         ],
       ),
