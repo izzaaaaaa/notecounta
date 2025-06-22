@@ -146,13 +146,13 @@ class _NotecountaState extends State<Notecounta> {
                           subtitle: Column( // Subtitle berisi beberapa info nota
                             crossAxisAlignment: CrossAxisAlignment.start, // Rata kiri semua teks
                             children: [
-                              Text('Tanggal: ${_dateFormat.format(DateTime.now())}'), // Tanggal format dd - MM - yyyy
-                              Text('Type HP: ${nota['type_hp']}'), 
-                              Text('Kerusakan: ${nota['kerusakan']}'), 
-                              Text('Kelengkapan: ${nota['kelengkapan']}'), 
-                              Text('No HP: ${nota['no_hp']}'), 
+                              Text('Tanggal : ${_dateFormat.format(DateTime.now())}'), // Tanggal format dd - MM - yyyy
+                              Text('Type HP : ${nota['type_hp']}'), 
+                              Text('Kerusakan : ${nota['kerusakan']}'), 
+                              Text('Kelengkapan : ${nota['kelengkapan']}'), 
+                              Text('No HP : ${nota['no_hp']}'), 
                               Text(
-                                  'Harga: Rp ${NumberFormat('#,###', 'id_ID').format(nota['harga']).replaceAll(',', '.')}'), // Harga diformat dengan ribuan dan titik sebagai pemisah
+                                  'Harga : Rp.${NumberFormat('#,###', 'id_ID').format(nota['harga']).replaceAll(',', '.')}'), // Harga diformat dengan ribuan dan titik sebagai pemisah
                             ],
                           ),
                           // isThreeLine: true, // menampilkan tiga baris teks
