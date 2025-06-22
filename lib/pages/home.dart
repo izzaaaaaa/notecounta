@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:notecounta/pages/notecounta.dart';
-// import 'package:notecounta/pages/nota.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

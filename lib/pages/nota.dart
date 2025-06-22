@@ -194,12 +194,6 @@ class _NotaState extends State<Nota> {
                   labelText: 'Kelengkapan',
                   border: OutlineInputBorder(),
                 ),
-                validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'Kelengkapan tidak boleh kosong';
-                  }
-                  return null;
-                },
               ),
               const SizedBox(height: 12),
 

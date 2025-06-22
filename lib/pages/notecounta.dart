@@ -87,7 +87,7 @@ class _NotecountaState extends State<Notecounta> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal menghapus data: $e')), // Tampilkan pesan gagal hapus jika error
+          SnackBar(content: Text('Gagal menghapus data: $e')), // menampilkan pesan gagal hapus jika error
         );
       }
     } finally {
@@ -147,15 +147,15 @@ class _NotecountaState extends State<Notecounta> {
                             crossAxisAlignment: CrossAxisAlignment.start, // Rata kiri semua teks
                             children: [
                               Text('Tanggal: ${_dateFormat.format(DateTime.now())}'), // Tanggal format dd - MM - yyyy
-                              Text('Type HP: ${nota['type_hp']}'), // Type HP
-                              Text('Kerusakan: ${nota['kerusakan']}'), // Kerusakan
-                              Text('Kelengkapan: ${nota['kelengkapan']}'), // Kelengkapan
-                              Text('No HP: ${nota['no_hp']}'), // Nomor HP
+                              Text('Type HP: ${nota['type_hp']}'), 
+                              Text('Kerusakan: ${nota['kerusakan']}'), 
+                              Text('Kelengkapan: ${nota['kelengkapan']}'), 
+                              Text('No HP: ${nota['no_hp']}'), 
                               Text(
                                   'Harga: Rp ${NumberFormat('#,###', 'id_ID').format(nota['harga']).replaceAll(',', '.')}'), // Harga diformat dengan ribuan dan titik sebagai pemisah
                             ],
                           ),
-                          isThreeLine: true, // List tile menggunakan 3 baris
+                          // isThreeLine: true, // menampilkan tiga baris teks
                           trailing: PopupMenuButton<String>( // Tombol menu popup di kanan untuk opsi edit/hapus
                             onSelected: (value) { // Handler saat memilih menu
                               if (value == 'edit') {
