@@ -146,7 +146,7 @@ class _NotecountaState extends State<Notecounta> {
                           subtitle: Column( // Subtitle berisi beberapa info nota
                             crossAxisAlignment: CrossAxisAlignment.start, // Rata kiri semua teks
                             children: [
-                              Text('Tanggal : ${_dateFormat.format(DateTime.now())}'), // Tanggal format dd - MM - yyyy
+                              Text('Tanggal : ${_dateFormat.format(DateTime.parse(nota['tanggal']))}'), // Ambil tanggal dari data nota, // Tanggal format dd - MM - yyyy
                               Text('Type HP : ${nota['type_hp']}'), 
                               Text('Kerusakan : ${nota['kerusakan']}'), 
                               Text('Kelengkapan : ${nota['kelengkapan']}'), 

@@ -22,13 +22,11 @@ class _NotaState extends State<Nota> {
   final _kelengkapanController = TextEditingController(); 
   final _noHpController = TextEditingController(); 
   final _hargaController = TextEditingController(); 
-
   final DateFormat _dateFormat = DateFormat('dd - MM - yyyy'); // Format tampilan tanggal
 
   @override
   void initState() {
     super.initState();
-    _selectedDate = DateTime.now(); // Set tanggal saat ini saat form dibuka
 
     if (widget.notaData != null) {
       // Jika dalam mode edit, isi semua field dari data
@@ -42,6 +40,8 @@ class _NotaState extends State<Nota> {
       _hargaController.text = (data['harga'] != null)
           ? NumberFormat('#,###', 'id_ID').format(data['harga']).replaceAll(',', '.')
           : '';
+    } else {
+      _selectedDate = DateTime.now(); // Set tanggal saat ini untuk tambah nota?
     }
   }
 
