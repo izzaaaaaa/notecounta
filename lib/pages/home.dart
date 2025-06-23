@@ -13,7 +13,8 @@ class Home extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Selamat datang!',
+          'Selamat datang di Aplikasi Nota Konter'
+          '\nSilahkan untuk mengisi data nota',
           style: TextStyle(fontSize: 18),
         ),
       ),

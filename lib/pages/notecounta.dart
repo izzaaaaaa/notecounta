@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart'; // Import package Flutter untuk UI
-import 'package:intl/intl.dart'; // Import package intl untuk format tanggal dan angka
-import 'package:supabase_flutter/supabase_flutter.dart'; // Import Supabase Flutter client
-import 'package:notecounta/pages/nota.dart'; // Import halaman Nota untuk navigasi tambah/edit
+import 'package:flutter/material.dart'; 
+import 'package:intl/intl.dart'; // untuk format tanggal dan angka
+import 'package:supabase_flutter/supabase_flutter.dart'; 
+import 'package:notecounta/pages/nota.dart'; 
 
 
-class Notecounta extends StatefulWidget { // Widget stateful untuk halaman daftar nota
-  const Notecounta({super.key}); // Konstruktor const dengan key opsional
+class Notecounta extends StatefulWidget { //untuk halaman daftar nota
+  const Notecounta({super.key}); 
 
   @override
-  State<Notecounta> createState() => _NotecountaState(); // Membuat state _NotecountaState
+  State<Notecounta> createState() => _NotecountaState(); // untuk Membuat state _NotecountaState
 }
 
 class _NotecountaState extends State<Notecounta> {

@@ -3,7 +3,7 @@ import 'package:notecounta/pages/home.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Penting untuk inisialisasi async
+  WidgetsFlutterBinding.ensureInitialized(); // untuk inisialisasi async
   await Supabase.initialize(
     url: 'https://emdsnpumittmsmolihuy.supabase.co',
     anonKey:

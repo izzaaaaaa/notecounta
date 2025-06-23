@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart'; // Untuk UI
-import 'package:intl/intl.dart'; // Untuk format tanggal & angka
-import 'package:supabase_flutter/supabase_flutter.dart'; // Untuk koneksi Supabase
+import 'package:flutter/material.dart'; 
+import 'package:intl/intl.dart'; // Untuk format tanggal dan angka
+import 'package:supabase_flutter/supabase_flutter.dart'; // Untuk menyambungksn ke Supabase
 
 class Nota extends StatefulWidget {
   final Map<String, dynamic>? notaData; // Data yang dikirim untuk mode edit
@@ -16,12 +16,12 @@ class _NotaState extends State<Nota> {
 
   final _formKey = GlobalKey<FormState>(); // Kunci form untuk validasi
   DateTime? _selectedDate; // Menyimpan tanggal nota
-  final _namaController = TextEditingController(); // Input nama
-  final _typeHpController = TextEditingController(); // Input tipe HP
-  final _kerusakanController = TextEditingController(); // Input kerusakan
-  final _kelengkapanController = TextEditingController(); // Input kelengkapan
-  final _noHpController = TextEditingController(); // Input no HP
-  final _hargaController = TextEditingController(); // Input harga
+  final _namaController = TextEditingController(); 
+  final _typeHpController = TextEditingController(); 
+  final _kerusakanController = TextEditingController(); 
+  final _kelengkapanController = TextEditingController(); 
+  final _noHpController = TextEditingController(); 
+  final _hargaController = TextEditingController(); 
 
   final DateFormat _dateFormat = DateFormat('dd - MM - yyyy'); // Format tampilan tanggal
 
@@ -32,16 +32,17 @@ class _NotaState extends State<Nota> {
       // Jika dalam mode edit, isi semua field dari data
       final data = widget.notaData!;
       _selectedDate = DateTime.parse(data['tanggal']);
-      _namaController.text = data['nama'] ?? '';
-      _typeHpController.text = data['type_hp'] ?? '';
-      _kerusakanController.text = data['kerusakan'] ?? '';
-      _kelengkapanController.text = data['kelengkapan'] ?? '';
-      _noHpController.text = (data['no_hp'] ?? '').toString();
+      _namaController.text = data['nama']  ;
+      _typeHpController.text = data['type_hp']  ;
+      _kerusakanController.text = data['kerusakan'] ;
+      _kelengkapanController.text = data['kelengkapan'];
+      _noHpController.text = (data['no_hp'] ).toString();
       _hargaController.text = (data['harga'] != null)
           ? NumberFormat('#,###', 'id_ID').format(data['harga']).replaceAll(',', '.')
           : '';
     } else {
       _selectedDate = DateTime.now(); // Jika tambah baru, set tanggal hari ini
+      
     }
   }
 
@@ -58,6 +59,7 @@ class _NotaState extends State<Nota> {
   Future<void> submitForm() async {
     if (!_formKey.currentState!.validate()) return; // Jika form tidak valid, keluar
     if (_selectedDate == null) {
+      return;
     }
 
     // Persiapkan data untuk disimpan
