@@ -15,7 +15,7 @@ class _NotaState extends State<Nota> {
   final supabase = Supabase.instance.client; // Koneksi Supabase
 
   final _formKey = GlobalKey<FormState>(); // Kunci form untuk validasi
-  DateTime? _selectedDate; // Menyimpan tanggal nota
+  late DateTime _selectedDate; // Menyimpan tanggal nota
   final _namaController = TextEditingController(); 
   final _typeHpController = TextEditingController(); 
   final _kerusakanController = TextEditingController(); 
@@ -28,21 +28,20 @@ class _NotaState extends State<Nota> {
   @override
   void initState() {
     super.initState();
+    _selectedDate = DateTime.now(); // Set tanggal saat ini saat form dibuka
+
     if (widget.notaData != null) {
       // Jika dalam mode edit, isi semua field dari data
       final data = widget.notaData!;
-      _selectedDate = DateTime.parse(data['tanggal']);
-      _namaController.text = data['nama']  ;
-      _typeHpController.text = data['type_hp']  ;
-      _kerusakanController.text = data['kerusakan'] ;
+      _selectedDate = DateTime.parse(data['tanggal']); // Ambil tanggal dari data
+      _namaController.text = data['nama'];
+      _typeHpController.text = data['type_hp'];
+      _kerusakanController.text = data['kerusakan'];
       _kelengkapanController.text = data['kelengkapan'];
-      _noHpController.text = (data['no_hp'] ).toString();
+      _noHpController.text = (data['no_hp']).toString();
       _hargaController.text = (data['harga'] != null)
           ? NumberFormat('#,###', 'id_ID').format(data['harga']).replaceAll(',', '.')
           : '';
-    } else {
-      _selectedDate = DateTime.now(); // Jika tambah baru, set tanggal hari ini
-      
     }
   }
 
@@ -58,15 +57,12 @@ class _NotaState extends State<Nota> {
   // Fungsi saat tombol submit ditekan
   Future<void> submitForm() async {
     if (!_formKey.currentState!.validate()) return; // Jika form tidak valid, keluar
-    if (_selectedDate == null) {
-      return;
-    }
 
     // Persiapkan data untuk disimpan
     final data = {
-      'tanggal': _selectedDate!.toIso8601String().split('T').first, // Format YYYY-MM-DD
+      'tanggal': _selectedDate.toIso8601String().split('T').first, // Format YYYY-MM-DD
       'nama': _namaController.text.trim(),
-      'type_hp':_typeHpController.text.trim(),
+      'type_hp': _typeHpController.text.trim(),
       'kerusakan': _kerusakanController.text.trim(),
       'kelengkapan': _kelengkapanController.text.trim(),
       'no_hp': int.parse(_noHpController.text.trim()),
@@ -134,9 +130,7 @@ class _NotaState extends State<Nota> {
                   border: OutlineInputBorder(),
                 ),
                 controller: TextEditingController(
-                  text: _selectedDate == null
-                      ? ''
-                      : _dateFormat.format(_selectedDate!),
+                  text: _dateFormat.format(_selectedDate), // Tampilkan tanggal yang sudah diset
                 ),
               ),
               const SizedBox(height: 12),
